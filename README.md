@@ -1,7 +1,55 @@
-# Vue 3 + Vite
+# SUPER-VUE-SEAMLESS-SCROLL
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 超级滚动列表
 
-## Recommended IDE Setup
+### 说明
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+目前在大屏开发之中，我们经常会使用vue-seamless-scroll组件
+
+- vue2版本使用的是 vue-seamless-scroll
+- vue3版本使用的是 vue3-seamless-scroll
+
+但是这个组件普遍存在一个**问题，就是在针对大数据量渲染的时候，页面会非常的卡顿**
+
+卡顿的原因在于，vue-seamless-scroll组件的实现原理，在内部的实现原理是使用的两个同样的dom界面，在位移变换的时候实现无缝滚动的效果，下图可以展示，下图使用的是vue2的vue-seamless-scroll源码
+
+![image-20240227162835849](C:\Users\yuzho\AppData\Roaming\Typora\typora-user-images\image-20240227162835849.png)
+
+这种模式就会导致永远是双倍的数据量/dom节点在渲染，所以当有大数据量是会产生卡顿的现象
+
+### 解决方案
+
+目前针对大数据量处理的问题主要有3种
+
+- web worker 无法操作dom
+- 切片渲染 requestAnimationFrame 但是无法解决渲染过多的问题
+- 虚拟列表 最好的方案
+
+
+
+本案例采取的是虚拟列表方案，目前市面上的虚拟列表主要是针对select选择组件实现的，virtual-list，它只能是手动的滚动，而无法自动的滚动，本案例专门是针对大屏项目开发的可以支持**大数据量滚动的虚拟列表实现**
+
+
+
+在实测之中支持10万条数据轻而易举，而且在浏览器的性能选项之中，较vue-seamless-scroll表现相当出色，看下图，可以在代码之中调试data.js的循环次数来调试测试
+
+![image-20240227163518761](C:\Users\yuzho\AppData\Roaming\Typora\typora-user-images\image-20240227163518761.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
