@@ -1,5 +1,9 @@
 # SUPER-VUE-SEAMLESS-SCROLL
 
+
+### 关于github上面的md文档图片不显示的问题，请参照：https://www.wenchangstreet.com/2024/02/28/%E5%9F%BA%E4%BA%8E%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8%E7%9A%84%E8%B6%85%E7%BA%A7%E6%BB%9A%E5%8A%A8%E7%9A%84scroll
+
+
 ## 超级滚动列表
 
 ### 说明
